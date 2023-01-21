@@ -11,4 +11,4 @@ Special thanks to @vallemar on Discord #vue channel
 
 @ https://discord.com/invite/RgmpGky9GR
 
-[Playground Preview](https://stackblitz.com/edit/nativescript-stackblitz-templates-hrz75q)
+[Playground Preview](https://stackblitz.com/edit/nativescript-stackblitz-templates-fc8hgr?file=src%2Fapp.ts)
