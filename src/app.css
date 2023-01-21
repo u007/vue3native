@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './styles/form.css';
+
+ActionBar {
+  background-color: #65adf1;
+  color: white;
+}
+
+.m-icon-outline {
+  font-family: 'Material Icons', 'MaterialIconsOutlined-Regular';
+  /* font-weight: 400; */
+}

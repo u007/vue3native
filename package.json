@@ -1,0 +1,38 @@
+{
+  "name": "movingapp",
+  "main": "src/app.ts",
+  "version": "1.0.0",
+  "private": true,
+  "nativescript": {
+    "id": "com.mercstudio.movingapp"
+  },
+  "scripts": {
+    "clean": "tns platform clean ios && tns platform clean android",
+    "prepare": "tns prepare ios && tns prepare android",
+    "devices": "tns devices",
+    "ios": "tns run ios",
+    "android": "tns debug android",
+    "build-ios": "tns build ios",
+    "run-iphone": "tns run --device c2b97f1817f70720a5871e239401515a4dfe3348"
+  },
+  "dependencies": {
+    "@nativescript-community/ui-material-textfield": "^7.0.34",
+    "@nativescript/camera": "^5.0.15",
+    "@nativescript/core": "~8.4.5",
+    "@nativescript/geolocation": "^8.1.0",
+    "@nativescript/mlkit-barcode-scanning": "^1.0.6",
+    "@nativescript/mlkit-core": "^1.0.6",
+    "nativescript-vue": "3.0.0-beta.5"
+  },
+  "devDependencies": {
+    "@nativescript/android": "8.4.0",
+    "@nativescript/ios": "8.4.1",
+    "@nativescript/tailwind": "^2.0.1",
+    "@nativescript/types": "~8.4.0",
+    "@nativescript/webpack": "~5.0.12",
+    "@types/node": "~18.11.18",
+    "tailwindcss": "^3.2.4",
+    "typescript": "~4.9.4",
+    "vue": "^3.2.45"
+  }
+}
