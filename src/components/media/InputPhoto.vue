@@ -2,7 +2,9 @@
 import { requestPermissions, takePicture } from '@nativescript/camera';
 import { onMounted, ref, watch } from 'nativescript-vue';
 import Button1 from '@/components/form/Button1.vue';
-import { saveImageAsset } from '@/utils/media';
+import { getAssetSource, saveImageAsset } from '@/utils/media';
+import { action } from '@nativescript/core';
+import * as imagepicker from '@nativescript/imagepicker';
 
 const props = defineProps<{
   title: string,
@@ -15,13 +17,17 @@ const $emit = defineEmits<{
   (event: 'update:value', path: string): void
 }>();
 
+const imagePickerContext = imagepicker.create({
+  mode: 'single' // use "multiple" for multiple selection
+});
+
 const asset = ref<any>(null)
 
 const takePhoto = () => {
   requestPermissions().then(
     function success() {
       console.log('permission ok, taking photo');
-      takePicture({ saveToGallery: true, keepAspectRatio: true })
+      takePicture({ saveToGallery: true, keepAspectRatio: true, allowsEditing: true })
         .then(async (imageAsset) => {
           asset.value = imageAsset;
           // console.log("Result is an image asset instance", imageAsset);
@@ -44,9 +50,42 @@ const takePhoto = () => {
   );
 }
 
+const selectPhoto = () => {
+  console.log('selectPhoto');
+
+  imagePickerContext
+    .authorize()
+    .then(function () {
+      return imagePickerContext.present()
+    })
+    .then(function (selection) {
+      selection.forEach(async function (selected) {
+        console.log('selected', selected);
+        const filePath = await getAssetSource(selected);
+        $emit('photo', { asset: selected, path: filePath });
+        $emit('update:value', filePath);
+      });
+    })
+    .catch(function (e) {
+      // process error
+      console.error('photo select', e);
+    })
+}
+
 const capturePhoto = async () => {
   console.log('capturePhoto')
-  await takePhoto();
+  action("Select source", "Cancel", ["Camera", "Gallery"])
+    .then((result: string) => {
+      if (result === 'Cancel') {
+        return;
+      }
+      console.log(result);
+      if (result === 'Camera') {
+        takePhoto();
+      } else {
+        selectPhoto();
+      }
+    });
 }
 
 watch(() => props.value, (v) => {

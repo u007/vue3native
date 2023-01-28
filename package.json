@@ -1,10 +1,10 @@
 {
-  "name": "movingapp",
+  "name": "nativescriptvue3",
   "main": "src/app.ts",
   "version": "1.0.0",
   "private": true,
   "nativescript": {
-    "id": "com.mercstudio.movingapp"
+    "id": "com.example.nativescriptvue3"
   },
   "scripts": {
     "clean": "tns platform clean ios && tns platform clean android",
@@ -20,6 +20,7 @@
     "@nativescript/camera": "^5.0.15",
     "@nativescript/core": "~8.4.5",
     "@nativescript/geolocation": "^8.1.0",
+    "@nativescript/imagepicker": "^1.0.9",
     "@nativescript/mlkit-barcode-scanning": "^1.0.6",
     "@nativescript/mlkit-core": "^1.0.6",
     "nativescript-vue": "3.0.0-beta.5"

@@ -1,7 +1,7 @@
 import { NativeScriptConfig } from '@nativescript/core';
 
 export default {
-  id: 'com.mercstudio.movingapp',
+  id: 'com.example.nativescriptvue3',
   appPath: 'src',
   appResourcesPath: 'App_Resources',
   android: {

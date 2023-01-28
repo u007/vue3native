@@ -1,6 +1,35 @@
 import { ImageSource, knownFolders, path, Folder } from '@nativescript/core';
+import { isAndroid, isIOS } from '@nativescript/core';
 
 export const mediaHomePrefix = ['movingfwd'];
+
+export const getAssetSource = async (asset: any) => {
+  if (isAndroid) {
+    console.log('getAssetSource android', asset);
+    return asset.android;
+  }
+
+  if (isIOS) {
+    return asset.ios;
+  }
+
+  throw new Error('getAssetSource: Unsupported platform');
+  // return await ImageSource.fromAsset(asset)
+  //   .then((imageSource: ImageSource) => {
+  //     if (isAndroid) {
+  //       console.log('getAssetSource android', imageSource);
+  //       return imageSource.android;
+  //     }
+
+  //     if (isIOS) {
+  //       return imageSource.ios;
+  //     }
+  //   })
+  //   .catch((e: any) => {
+  //     console.log('saveImageAsset error', e);
+  //     return e;
+  //   });
+};
 
 export const saveImageAsset = async (
   asset: any,

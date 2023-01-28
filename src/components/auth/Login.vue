@@ -45,9 +45,11 @@ const doSignup = () => {
           <Image src="~/imgs/logo.png" height="100" class="mt-2 mb-2" />
           <Label text="Hello again!" class="text-center text-lg mb-4" />
 
+          <!-- <MDTextField helper="example helper" placeholderColor="green" keyboardType="datetime" hint="i am an hint"
+            returnKeyType="next" v-model:value="username" /> -->
+
           <TextInput label="Login ID" v-model:value="username" />
           <TextInput label="Password" v-model:value="password" :secure="true" />
-          <!-- <MDTextField v-model="username" hint="login id" /> -->
           <!-- <TextField v-model:value="username" class="text-center" hint="login id" />
           <TextField v-model="password" :secure="true" class="text-center" hint="password" /> -->
 
